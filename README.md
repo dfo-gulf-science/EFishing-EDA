@@ -45,6 +45,7 @@ Note: In cases when data has been imputed and flagged, it is recommended that me
 
 * Margaree and GNS spreadsheets have the exact same data:
   * in 'Code' and 'Code, species' sheets, respectively
+  * both in same dataframe: df_code
 * There are many duplicated codes and descriptions
   * e.g., the Label "1113000 - MIRAMICHI RIVER" occurs twice, once in 'River' and once in 'Site Data'
   * even more duplicate if alternate spellings and subtle wording changes are considered
