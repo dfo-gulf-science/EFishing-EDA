@@ -129,7 +129,7 @@ Note: Issues previously flagged in phase 1 may not may not be mentioned again in
   * df_gsite.LENGTH_RIGHT_BANK = 194 
     * LENGTH_LEFT_BANK = 19.4 for this entry
     * Recommend scaling by 1/10x
-    <img src="https://user-images.githubusercontent.com/94803263/226981502-131f0a35-f390-4884-9f4a-dc71fe1ee2d7.png" width="500" />
+    <img src="https://user-images.githubusercontent.com/94803263/226988427-6f3eaa05-57f4-472a-bb7b-49277c89554b.png" width="500" />
 
   * df_msite.WATER_PH = 11.9
 * The sum of all SUB_TYPE_* columns should add to 100.
@@ -152,7 +152,7 @@ Note: Issues previously flagged in phase 1 may not may not be mentioned again in
   <img src="https://user-images.githubusercontent.com/94803263/226986212-350996e5-a133-488a-8fb3-6edeefcc2d55.png" width="800" />
   
   * scaling problem values by 10x leads to a much better fit with other data
-  <img src="https://user-images.githubusercontent.com/94803263/226986421-22c402cb-d4f1-4cf9-856e-a2f3cd7c1dd1.png" width="800" />
+  <img src="https://user-images.githubusercontent.com/94803263/226989838-57ed7087-80f1-4bfd-bcff-de90c0fdcb3b.png" width="800" />
 
   * NOTE: DEPTHA3 is supposed to be in CM. If these data need to be scaled up by a factor of 10, that implies that the data were accidentally inputted in decimeters, which does not seem likely. There may be a better explanation for this data issue. 
   * RECOMMENDATION: (df_msite.DEPTHA3 < 5) & (df_msite.year < 1980) should likely be scaled by 10x, but proceed with caution.
