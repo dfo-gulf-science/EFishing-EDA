@@ -33,7 +33,7 @@ Note: In cases when data has been imputed and flagged, it is recommended that me
     * ~df_mar['FORK_LENGTH'].astype(str).str.replace('.','',1,regex=False).str.isnumeric()
     * ~df_mar['TOTAL_LENGTH'].astype(str).str.replace('.','',1,regex=False).str.isnumeric()
     * converted to averages and flagged
-  * same categories typed differently:
+  * some single categories have been inputted with multiple different names:
 <img src="https://user-images.githubusercontent.com/94803263/226931204-efd68916-d986-4f55-b25a-f4b07e651d46.png" width="800" />
 <img src="https://user-images.githubusercontent.com/94803263/226931428-4cebdc6f-a069-4437-89d7-e00623673c3e.png" width="800" />
 <img src="(https://user-images.githubusercontent.com/94803263/226931534-f1654068-c859-46b1-9bfc-7045cd1c6ca7.png" width="800" />
@@ -82,6 +82,51 @@ Note: In cases when data has been imputed and flagged, it is recommended that me
 <img src="https://user-images.githubusercontent.com/94803263/226946163-95eede52-9b62-4f11-b679-7af60e76254d.png" width="800" />
 <img src="https://user-images.githubusercontent.com/94803263/226946611-6c7b8510-65d5-4171-ab78-bd542e0f019c.png" width="800" />
 
+## Exploratory Data Analysis: Phase 2
+
+In this phase of the assessment, the data from phase 1 was imported, and additional data exploration was completed based on plots and data from phase 1.
+
+Note: Issues previously flagged in phase 1 may not may not be mentioned again in this summary, but are often investigated in more detail in the phase 2 jupyter notebook.
+
+### Biological Data
+
+* There are only M and U entries indf_gns.SEX, no entries for F. 
+  * there is no indication that this is an error, but it is worth confirming
+* In both df_mar and df_gns, MATURITY is almost never used, and always "P" when it is used
+
+##### GNS
+
+* Probable outliers:
+  * df_gns.FORK_LENGTH > 500
+<div>
+  <img src="https://user-images.githubusercontent.com/94803263/226979288-a3c304f8-d44d-40e2-9140-99684926b94e.png" width="400" />
+  <img src="https://user-images.githubusercontent.com/94803263/226976520-f42e0ad3-088c-40c8-a2a9-e7927947b7e2.png" width="400" />
+</div>
+
+  * (df_gns.FORK_LENGTH<20) & (df_gns.WEIGHT>3) mightly be off by 10x
+    * not clear, slightly better fit: if scaling these, please proceed with caution
+<img src="https://user-images.githubusercontent.com/94803263/226978884-fc0200e9-9543-42b9-a9ad-92fb762fb97c.png" width="500" />
+
+  * still some likely data entry issues after these fixes. either leave as is, or investigate on case by case basis.
+
+##### Margaree
+
+* Probable outliers:
+  * df_mar.WEIGHT > 10000
+  * df_mar.FORK_LENGTH > 600
+
+<div>
+  <img src="https://user-images.githubusercontent.com/94803263/226980775-5589f850-978e-4fd5-8d5a-f2224d848471.png" width="400" />
+  <img src="https://user-images.githubusercontent.com/94803263/226980810-4946b9bc-783d-4cbc-a44c-dc7d4de3b883.png" width="400" />
+</div>
 
 
+### Site Data
+
+* ELECTROFISHER_TYPE inputted with multiple different names for the same category:
+  * ELECTROFISHER_TYPE == "LR24" and "LR 24"
+* Probable outliers:
+  * df_gsite.LENGTH_RIGHT_BANK = 194 
+    * LENGTH_LEFT_BANK = 19.4 for this entry
+  * df_msite.WATER_PH = 11.9
 
