@@ -1,8 +1,8 @@
 # E-Fishing Exploratory Data Analysis
 
-This study is comparing and investigating historical data from Margaree and GNS Electrofishing datasets.
+This study compares and investigates historical data from Margaree and GNS Electrofishing datasets.
 
-## Exploratory Data Analysis: Phase 1
+## [Exploratory Data Analysis: Phase 1](https://github.com/KevinCarr42/EFishing-EDA/blob/master/E_Fishing_EDA_part1.ipynb)
 
 In this phase of the assessment, the data was imported, plotted, explored, and datatype inconsistencies were cleaned and flagged. The formatted and flagged dataframes were saved to be investigated and cleaned further in phase 2 of the EDA.
 
@@ -83,7 +83,7 @@ Note: In cases when data has been imputed and flagged, it is recommended that me
 <img src="https://user-images.githubusercontent.com/94803263/226946163-95eede52-9b62-4f11-b679-7af60e76254d.png" width="800" />
 <img src="https://user-images.githubusercontent.com/94803263/226946611-6c7b8510-65d5-4171-ab78-bd542e0f019c.png" width="800" />
 
-## Exploratory Data Analysis: Phase 2
+## [Exploratory Data Analysis: Phase 2](https://github.com/KevinCarr42/EFishing-EDA/blob/master/E_Fishing_EDA_part2.ipynb)
 
 In this phase of the assessment, the data from phase 1 was imported, and additional data exploration was completed based on plots and data from phase 1.
 
