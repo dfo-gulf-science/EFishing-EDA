@@ -98,14 +98,14 @@ Note: Issues previously flagged in phase 1 may not may not be mentioned again in
 
 * Probable outliers:
   * df_gns.FORK_LENGTH > 500
-<div>
-  <img src="https://user-images.githubusercontent.com/94803263/226979288-a3c304f8-d44d-40e2-9140-99684926b94e.png" width="400" />
-  <img src="https://user-images.githubusercontent.com/94803263/226976520-f42e0ad3-088c-40c8-a2a9-e7927947b7e2.png" width="400" />
-</div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/94803263/226979288-a3c304f8-d44d-40e2-9140-99684926b94e.png" width="400" />
+    <img src="https://user-images.githubusercontent.com/94803263/226976520-f42e0ad3-088c-40c8-a2a9-e7927947b7e2.png" width="400" />
+  </div>
 
   * (df_gns.FORK_LENGTH<20) & (df_gns.WEIGHT>3) mightly be off by 10x
     * not clear, slightly better fit: if scaling these, please proceed with caution
-<img src="https://user-images.githubusercontent.com/94803263/226978884-fc0200e9-9543-42b9-a9ad-92fb762fb97c.png" width="500" />
+  <img src="https://user-images.githubusercontent.com/94803263/226978884-fc0200e9-9543-42b9-a9ad-92fb762fb97c.png" width="500" />
 
   * still some likely data entry issues after these fixes. either leave as is, or investigate on case by case basis.
 
@@ -114,11 +114,10 @@ Note: Issues previously flagged in phase 1 may not may not be mentioned again in
 * Probable outliers:
   * df_mar.WEIGHT > 10000
   * df_mar.FORK_LENGTH > 600
-
-<div>
-  <img src="https://user-images.githubusercontent.com/94803263/226980775-5589f850-978e-4fd5-8d5a-f2224d848471.png" width="400" />
-  <img src="https://user-images.githubusercontent.com/94803263/226980810-4946b9bc-783d-4cbc-a44c-dc7d4de3b883.png" width="400" />
-</div>
+  <div>
+    <img src="https://user-images.githubusercontent.com/94803263/226980775-5589f850-978e-4fd5-8d5a-f2224d848471.png" width="400" />
+    <img src="https://user-images.githubusercontent.com/94803263/226980810-4946b9bc-783d-4cbc-a44c-dc7d4de3b883.png" width="400" />
+  </div>
 
 
 ### Site Data
@@ -126,7 +125,35 @@ Note: Issues previously flagged in phase 1 may not may not be mentioned again in
 * ELECTROFISHER_TYPE inputted with multiple different names for the same category:
   * ELECTROFISHER_TYPE == "LR24" and "LR 24"
 * Probable outliers:
+
   * df_gsite.LENGTH_RIGHT_BANK = 194 
     * LENGTH_LEFT_BANK = 19.4 for this entry
+    * Recommend scaling by 1/10x
+    <img src="https://user-images.githubusercontent.com/94803263/226981502-131f0a35-f390-4884-9f4a-dc71fe1ee2d7.png" width="500" />
+
   * df_msite.WATER_PH = 11.9
+* The sum of all SUB_TYPE_* columns should add to 100.
+  * In most cases, this is indeed the case
+  * In a few cases numbers either close to 100 or NULL occur
+    * In cases with errors, they appear to be estimation uncertainty, with no obvious errors to correct.
+    * In these cases, it is recommended that the values be left as is unless analysis requires properly normalised columns.
+
+* df_msite.DEPTHA3 has a large number of low value outliers
+  <div>
+    <img src="https://user-images.githubusercontent.com/94803263/226984645-7f4cf10b-1730-448a-aa11-d5a735ee611b.png" width="400" />
+    <img src="https://user-images.githubusercontent.com/94803263/226984864-75bb040a-b049-4d42-8a7b-7e6c6c45052f.png" width="400" />
+  </div>
+
+  * a large number of DEPTHA3 values are below 5, although they aren't 0
+  <img src="https://user-images.githubusercontent.com/94803263/226985153-118288ce-a0c4-47ff-897f-2c9101173b27.png" width="600" />
+  <img src="https://user-images.githubusercontent.com/94803263/226985192-b67ab07c-0830-4b07-9535-bf921443609b.png" width="600" />
+
+  * comparing to DEPTHA1 and DEPTHA2, a cluster of these data appear to be off by a factor of 10x
+  <img src="https://user-images.githubusercontent.com/94803263/226986212-350996e5-a133-488a-8fb3-6edeefcc2d55.png" width="800" />
+  
+  * scaling problem values by 10x leads to a much better fit with other data
+  <img src="https://user-images.githubusercontent.com/94803263/226986421-22c402cb-d4f1-4cf9-856e-a2f3cd7c1dd1.png" width="800" />
+
+  * NOTE: DEPTHA3 is supposed to be in CM. If these data need to be scaled up by a factor of 10, that implies that the data were accidentally inputted in decimeters, which does not seem likely. There may be a better explanation for this data issue. 
+  * RECOMMENDATION: (df_msite.DEPTHA3 < 5) & (df_msite.year < 1980) should likely be scaled by 10x, but proceed with caution.
 
