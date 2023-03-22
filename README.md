@@ -1,6 +1,6 @@
 # E-Fishing Exploratory Data Analysis
 
-This study is comparing and investigating historical data from Margaree and GNS Electrofishing Data.
+This study is comparing and investigating historical data from Margaree and GNS Electrofishing datasets.
 
 ## Exploratory Data Analysis: Phase 1
 
@@ -78,4 +78,10 @@ Note: In cases when data has been imputed and flagged, it is recommended that me
       * flagged and imputed as 80
     * MAX_OVERHANG_R_BK == ',,5'
       * flagged and converted to NULL
-    
+* some distributions with likely outliers at the extremes:
+<img src="https://user-images.githubusercontent.com/94803263/226946163-95eede52-9b62-4f11-b679-7af60e76254d.png" width="800" />
+<img src="https://user-images.githubusercontent.com/94803263/226946611-6c7b8510-65d5-4171-ab78-bd542e0f019c.png" width="800" />
+
+
+
+
