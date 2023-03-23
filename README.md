@@ -156,5 +156,5 @@ Note: Issues previously flagged in phase 1 may not may not be mentioned again in
   <img src="https://user-images.githubusercontent.com/94803263/226989838-57ed7087-80f1-4bfd-bcff-de90c0fdcb3b.png" width="800" />
 
   * NOTE: DEPTHA3 is supposed to be in CM. If these data need to be scaled up by a factor of 10, that implies that the data were accidentally inputted in decimeters, which does not seem likely. There may be a better explanation for this data issue. 
-  * RECOMMENDATION: (df_msite.DEPTHA3 < 5) & (df_msite.year < 1980) should likely be scaled by 10x, but proceed with caution.
+  * RECOMMENDATION: (df_msite.DEPTHA3 < 5) & (df_msite.ID < 280) should likely be scaled by 10x, but proceed with caution. Note: ID < 280 is equivalent to SURVEY < 1980.
 
